@@ -10,7 +10,7 @@ const getEvento = (req: Request, res: Response, next: NextFunction) => {
     var env = req.params.env; 
 
 
-    setApi.evento(id, xmlSigned, env as profile , '../7155053_identity.p12' , '123456').then(xml => {
+    setApi.evento(id, xmlSigned, env as profile , '../7155053_identity.p12' , 'Sandra09').then(xml => {
        console.log("XML con QR", xml)
        return res.status(200).json({
         message: xml
