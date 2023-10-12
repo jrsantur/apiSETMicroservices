@@ -7,6 +7,13 @@ import routesConsultaDE from './routes/consultaDE';
 import routesenviaraDE from './routes/enviarDE';
 import routeseventosDE from './routes/eventosDE';
 
+import generateQR from './routes/qrgen';
+
+import generateXMLSign from './routes/generateXMLSign';
+
+import generateXMLDE from './routes/generateXMLDE';
+import generateXMLEvento from './routes/generateXMLEvento';
+
 const router: Express = express();
 
 /** Logging */
@@ -34,6 +41,13 @@ router.use((req, res, next) => {
 router.use('/api/consulta', routesConsultaDE);
 router.use('/api/enviar', routesenviaraDE);
 router.use('/api/evento', routeseventosDE);
+
+router.use('/api/qr/', generateQR);
+
+router.use('/api/signed', generateXMLSign);
+
+router.use('/api/generar', generateXMLDE);
+router.use('/api/evento', generateXMLEvento);
 
 
 /** Error handling */
