@@ -8,9 +8,9 @@ const generateXMLDE = (req: Request, res: Response, next: NextFunction) => {
 
     var data :string = req.params.data; 
     var params :string = req.params.params;  
-    var options :XmlgenConfig = JSON.parse(req.params.options);
+    var options :XmlgenConfig ;
 
-    xmlgen.generateXMLDE(params, data, options).then(xml => {
+    xmlgen.generateXMLDE(params, data).then(xml => {
        console.log(xml);
        return res.status(200).json({
         message: xml
