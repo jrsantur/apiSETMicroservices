@@ -11,6 +11,8 @@ const generateXMLDE = (req: Request, res: Response, next: NextFunction) => {
     var options :XmlgenConfig ;
 
     xmlgen.generateXMLDE(params, data).then(xml => {
+        console.log(params); 
+        console.log(data); 
        console.log(xml);
        return res.status(200).json({
         message: xml
