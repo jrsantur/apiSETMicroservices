@@ -6,8 +6,8 @@ import { XmlgenConfig } from 'facturacionelectronicapy-xmlgen/dist/services/type
 
 const generateXMLDE = (req: Request, res: Response, next: NextFunction) => {
 
-    var data :string = req.params.data; 
-    var params :string = req.params.params;  
+    var data :any = req.body.data; 
+    var params :any = req.body.params;  
    
     console.log(params); 
     console.log(data); 
