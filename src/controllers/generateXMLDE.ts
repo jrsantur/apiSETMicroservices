@@ -12,16 +12,17 @@ const generateXMLDE = (req: Request, res: Response, next: NextFunction) => {
     console.log(params); 
     console.log(data); 
 
-
     xmlgen.generateXMLDE(params, data).then(xml => {
         
        console.log(xml);
        return res.status(200).json({
-        message: xml
+            "message": xml
         });  
     }).catch(error => {
-        res.json(error);
         console.log(error);
+        return res.status(200).json({
+            "error": error
+        });          
     });     
 
 }
