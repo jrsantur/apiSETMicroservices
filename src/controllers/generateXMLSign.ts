@@ -8,7 +8,7 @@ type profile =  "prod"|"test";
 
 const generateXMLSign = (req: Request, res: Response, next: NextFunction) => {
 
-    var xml :string = req.params.xml;   
+    var xml :string = req.body.xml;   
 
     xmlgen.signXML(xml, '../7155053_identity.p12' , '123456').then(xmlSigned => {
         console.log("XML firmado", xmlSigned)
