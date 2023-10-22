@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-const path = require('path');
+import path from 'path';
+import utf8 from 'utf8';
 import  xmlgen from 'facturacionelectronicapy-xmlsign';
 
 
@@ -13,7 +14,7 @@ const generateXMLSign = (req: Request, res: Response, next: NextFunction) => {
 
     xmlgen.signXML(xml, pathFile , 'Sandra09').then(xmlSigned => {
         console.log("XML firmado", xmlSigned)
-
+        xmlSigned = utf8.encode(xmlSigned); 
         return res.status(200).json({
             message: xmlSigned
         });  
