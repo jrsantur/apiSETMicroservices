@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-
-
+const path = require('path');
 import  xmlgen from 'facturacionelectronicapy-xmlsign';
 
 
@@ -10,7 +9,9 @@ const generateXMLSign = (req: Request, res: Response, next: NextFunction) => {
 
     var xml :string = req.body.xml;   
 
-    xmlgen.signXML(xml, '7155053_identity.p12' , 'Sandra09').then(xmlSigned => {
+    var pathFile = path.resolve('7155053_identity.p12')
+
+    xmlgen.signXML(xml, pathFile , 'Sandra09').then(xmlSigned => {
         console.log("XML firmado", xmlSigned)
 
         return res.status(200).json({
