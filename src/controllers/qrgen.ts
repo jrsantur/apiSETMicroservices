@@ -16,8 +16,10 @@ const generateQR  = (req: Request, res: Response, next: NextFunction) => {
             message: xml
         });          
     }).catch(error => {
-        res.json(error);
         console.log(error);
+        return res.status(500).json({
+            message: error
+        });
     }); 
 }
 
