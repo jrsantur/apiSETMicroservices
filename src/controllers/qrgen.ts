@@ -8,7 +8,7 @@ type profile =  "prod"|"test";
 const generateQR  = (req: Request, res: Response, next: NextFunction) => {
 
     var xmlSigned :string = req.body.xml;    
-    var env = req.body.env; 
+    var env = "test"; 
 
     qrgen.generateQR(xmlSigned, '','', env as profile).then(xml => {
         console.log("XML con QR", xml)
