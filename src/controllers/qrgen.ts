@@ -11,8 +11,10 @@ const generateQR  = (req: Request, res: Response, next: NextFunction) => {
     var env = req.body.env; 
 
     qrgen.generateQR(xmlSigned, '','', env as profile).then(xml => {
-        res.json(xml); 
         console.log("XML con QR", xml)
+        return res.status(200).json({
+            message: xml
+        });          
     }).catch(error => {
         res.json(error);
         console.log(error);
