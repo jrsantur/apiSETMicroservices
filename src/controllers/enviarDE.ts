@@ -44,8 +44,6 @@ const sendXlote = (req: Request, res: Response, next: NextFunction) => {
             message: error
         });
     }); 
-
-
 }
 
 export default { sendDE , sendXlote }; 
